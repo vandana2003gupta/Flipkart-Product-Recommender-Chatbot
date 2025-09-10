@@ -1,0 +1,22 @@
+flask
+prometheus_client
+python-dotenv
+requests
+beautifulsoup4
+pandas
+pypdf
+datasets
+
+# LangChain + integrations
+langchain
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-astradb
+
+# Datastax (Astra)
+astrapy
+
+# Optional (if you use embeddings)
+torch
+transformers
