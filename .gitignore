@@ -1,3 +1,45 @@
-.env
+# -----------------------------
+# Python cache & compiled files
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -----------------------------
+# Virtual environments
+# -----------------------------
 venv/
+ENV/
+.venv/
+env/
+
+# -----------------------------
+# Package build info
+# -----------------------------
 FLIPKART_RECOMMENDER.egg-info/
+*.egg
+*.egg-info
+dist/
+build/
+
+# -----------------------------
+# Local environment configs
+# -----------------------------
+.env
+
+# -----------------------------
+# Logs & database files
+# -----------------------------
+*.log
+*.db
+*.sqlite3
+*.pid
+
+# -----------------------------
+# OS / Editor files
+# -----------------------------
+.DS_Store
+.vscode/
+.idea/
+*.swp
