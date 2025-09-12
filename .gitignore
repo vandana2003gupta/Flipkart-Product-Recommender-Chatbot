@@ -1,45 +1,31 @@
-# -----------------------------
-# Python cache & compiled files
-# -----------------------------
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# -----------------------------
 # Virtual environments
-# -----------------------------
 venv/
-ENV/
-.venv/
-env/
+.env
 
-# -----------------------------
-# Package build info
-# -----------------------------
-FLIPKART_RECOMMENDER.egg-info/
-*.egg
-*.egg-info
+# Distribution / packaging
+*.egg-info/
 dist/
 build/
 
-# -----------------------------
-# Local environment configs
-# -----------------------------
-.env
-
-# -----------------------------
-# Logs & database files
-# -----------------------------
+# Logs / Databases
 *.log
 *.db
 *.sqlite3
-*.pid
 
-# -----------------------------
-# OS / Editor files
-# -----------------------------
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE settings
 .vscode/
 .idea/
-*.swp
+
+# Docker
+Dockerfile
+.dockerignore
