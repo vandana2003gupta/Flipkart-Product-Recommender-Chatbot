@@ -5,10 +5,11 @@ from prometheus_client import Counter, generate_latest
 from flipkart.data_ingestion import DataIngestor
 from flipkart.rag_chain import RAGChainBuilder
 from flipkart.api_client import search_products
+from flipkart.config import Config
 from dotenv import load_dotenv
 import logging
 
-# Load environment variables
+# Load .env
 load_dotenv()
 
 # Prometheus counter
@@ -48,14 +49,14 @@ def create_app():
 
             logging.info(f"RAG response: {response}")
 
-            # Get products from Flipkart
+            # Get Flipkart products
             try:
                 products = search_products(user_input, limit=3)
             except Exception as e:
                 logging.error(f"Flipkart API failed: {e}")
                 products = []
 
-            # Build HTML for products
+            # Build HTML product cards
             product_html = ""
             if products:
                 product_html += "<br><b>🛒 Flipkart Products:</b><br>"

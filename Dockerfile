@@ -1,28 +1,27 @@
-# Use official Python image
+# Use official lightweight Python image
 FROM python:3.10-slim
+
+# Prevent Python from writing .pyc files & force stdout/stderr unbuffered
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements (so Docker caches pip installs)
+# Copy only requirements first (better caching)
 COPY requirements.txt .
 
-# Upgrade pip and install dependencies
+# Install dependencies
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy only source code (ignoring .git, venv, cache, etc.)
 COPY . .
 
 # Expose Flask port
 EXPOSE 5000
 
-# Default environment variables (override in docker-compose or kubernetes)
+# Set environment variables
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
 
