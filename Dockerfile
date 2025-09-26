@@ -1,27 +1,28 @@
-## Parent image
+# Parent image
 FROM python:3.10-slim
 
-## Essential environment variables
+# Essential environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    PORT=8080
 
-## Work directory inside the docker container
+# Work directory inside the docker container
 WORKDIR /app
 
-## Installing system dependancies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-## Copying ur all contents from local to app
+# Copy all contents from local to /app
 COPY . .
 
-## Run setup.py
+# Install package via setup.py
 RUN pip install --no-cache-dir -e .
 
-# Used PORTS
-EXPOSE 5000
+# Expose port (Cloud Run uses 8080)
+EXPOSE 8080
 
-# Run the app 
+# Run the app
 CMD ["python", "app.py"]
