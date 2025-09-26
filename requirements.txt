@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 langchain
 langchain-astradb
 langchain-huggingface
@@ -9,3 +10,27 @@ python-dotenv
 pandas
 flask
 prometheus_client
+=======
+flask
+prometheus_client
+python-dotenv
+requests
+beautifulsoup4
+pandas
+pypdf
+datasets
+
+# LangChain + integrations
+langchain
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-astradb
+
+# Datastax (Astra)
+astrapy
+
+# Optional (if you use embeddings)
+torch
+transformers
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671

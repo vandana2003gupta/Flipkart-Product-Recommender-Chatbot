@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* General Page Styles */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 body, html {
     height: 100%;
     margin: 0;
@@ -10,6 +14,10 @@ body, html {
     margin: auto;
 }
 
+<<<<<<< HEAD
+=======
+/* Chat Card */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 .card {
     height: 500px;
     border-radius: 15px;
@@ -43,6 +51,10 @@ body, html {
     background-color: #1c1e25;
 }
 
+<<<<<<< HEAD
+=======
+/* Input Area */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 .input-group {
     display: flex;
     width: 100%;
@@ -51,6 +63,7 @@ body, html {
 .type_msg {
     background-color: #3b3f47;
     border: none;
+<<<<<<< HEAD
     color: #ffffff !important;  /* Ensures visible text */
     height: 50px;
     padding: 12px;
@@ -60,6 +73,17 @@ body, html {
 
 .type_msg::placeholder {
     color: #aaaaaa;  /* Lighter grey for placeholder text */
+=======
+    color: #ffffff !important;
+    height: 50px;
+    padding: 12px;
+    border-radius: 10px 0 0 10px;
+    caret-color: #ffb900;
+}
+
+.type_msg::placeholder {
+    color: #aaaaaa;
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
     opacity: 1;
 }
 
@@ -83,6 +107,10 @@ body, html {
     background-color: #f6a400;
 }
 
+<<<<<<< HEAD
+=======
+/* User & Bot Images */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 .user_img,
 .user_img_msg {
     height: 45px;
@@ -112,6 +140,10 @@ body, html {
     margin-left: 10px;
 }
 
+<<<<<<< HEAD
+=======
+/* Chat Bubbles */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 .msg_cotainer,
 .msg_cotainer_send {
     max-width: 70%;
@@ -152,6 +184,78 @@ body, html {
     right: 0;
 }
 
+<<<<<<< HEAD
+=======
+/* Product Card Styles (inside chatbot) */
+.product-card {
+    background: #2c2f36;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.product-card img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
+    margin-right: 12px;
+}
+
+.product-card .product-details {
+    flex: 1;
+}
+
+.product-card h5 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffb900;
+}
+
+.product-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ddd;
+}
+
+.product-card .price {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00e676;
+}
+
+.product-card a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #ffb900;
+    color: #1c1c1c;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.product-card a:hover {
+    background: #f6a400;
+}
+
+/* Responsive */
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 @media (max-width: 576px) {
     .card {
         height: 100vh;
@@ -169,4 +273,18 @@ body, html {
         height: 35px;
         width: 35px;
     }
+<<<<<<< HEAD
 }
+=======
+
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-card img {
+        margin-bottom: 8px;
+    }
+}
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671

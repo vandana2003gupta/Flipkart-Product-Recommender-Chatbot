@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flipkart-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flipkart-recommender
+  template:
+    metadata:
+      labels:
+        app: flipkart-recommender
+    spec:
+      containers:
+      - name: flipkart-recommender
+        image: your-docker-image:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: HF_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hf-secret
+              key: HF_TOKEN

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pandas as pd
 from langchain_core.documents import Document
 
@@ -14,3 +15,20 @@ class DataConverter:
         ]
 
         return docs
+=======
+class DataConverter:
+    """
+    Simple utility class for cleaning and converting Flipkart API data.
+    You can extend this based on your needs.
+    """
+
+    @staticmethod
+    def convert(product: dict) -> dict:
+        return {
+            "title": product.get("title", "No title"),
+            "price": product.get("price", "N/A"),
+            "url": product.get("url", "#"),
+            "image": product.get("image", ""),
+            "description": product.get("description", ""),
+        }
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671

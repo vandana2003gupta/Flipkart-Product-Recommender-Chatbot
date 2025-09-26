@@ -2,7 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana
+<<<<<<< HEAD
   namespace: monitoring
+=======
+  labels:
+    app: grafana
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 spec:
   replicas: 1
   selector:
@@ -15,14 +20,32 @@ spec:
     spec:
       containers:
         - name: grafana
+<<<<<<< HEAD
           image: grafana/grafana
           ports:
             - containerPort: 3000
+=======
+          image: grafana/grafana:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: GF_SECURITY_ADMIN_USER
+              value: "admin"
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              value: "admin"
+          volumeMounts:
+            - name: grafana-storage
+              mountPath: /var/lib/grafana
+      volumes:
+        - name: grafana-storage
+          emptyDir: {}
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: grafana-service
+<<<<<<< HEAD
   namespace: monitoring
 spec:
   selector:
@@ -33,3 +56,15 @@ spec:
       targetPort: 3000
       nodePort: 32000  
   type: NodePort
+=======
+  labels:
+    app: grafana
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30300
+  selector:
+    app: grafana
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671

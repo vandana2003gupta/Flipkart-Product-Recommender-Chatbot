@@ -1,3 +1,37 @@
+<<<<<<< HEAD
 .env
 venv/
 FLIPKART_RECOMMENDER.egg-info/
+=======
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Logs / Databases
+*.log
+*.db
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Docker
+Dockerfile
+.dockerignore
+>>>>>>> fb74ba9e5ea1a37f37db3961a1b8c7e4d5e2f671

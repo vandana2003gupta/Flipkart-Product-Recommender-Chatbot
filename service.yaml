@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flipkart-recommender
+spec:
+  selector:
+    app: flipkart-recommender   # must match the labels in deployment.yaml
+  ports:
+    - protocol: TCP
+      port: 5000        # the port exposed inside Kubernetes
+      targetPort: 5000  # the port your app listens on inside the container
+  type: NodePort

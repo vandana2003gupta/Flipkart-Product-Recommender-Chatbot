@@ -1,0 +1,41 @@
+# -----------------------------
+# Python cache & compiled files
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -----------------------------
+# Virtual environments (don’t copy local venv into Docker image)
+# -----------------------------
+venv/
+.env/
+
+# -----------------------------
+# Git (no need in Docker image)
+# -----------------------------
+.git/
+.gitignore
+
+# -----------------------------
+# Docker files (optional)
+# -----------------------------
+Dockerfile
+.dockerignore
+
+# -----------------------------
+# Logs, DB, temp files
+# -----------------------------
+*.log
+*.db
+*.sqlite3
+*.pid
+*.gz
+
+# -----------------------------
+# OS / Editor files
+# -----------------------------
+.DS_Store
+.vscode/
+.idea/
