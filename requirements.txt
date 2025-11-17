@@ -1,12 +1,17 @@
+flask
+gunicorn
 langchain
+langchain-groq
 langchain-community
 langchain-huggingface
-langchain-groq
-langchain-astradb
+langchain-astra
+python-dotenv
+groq
+huggingface-hub
+tiktoken
+requests
 
-datasets
 pypdf
 python-dotenv
 pandas
-flask
 prometheus_client
