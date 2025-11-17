@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus
+          image: prom/prometheus:latest
           args:
-            - "--config.file=/etc/prometheus/prometheus.yml"
+            - --config.file=/etc/prometheus/prometheus.yml
           ports:
             - containerPort: 9090
           volumeMounts:
@@ -40,5 +40,5 @@ spec:
     - protocol: TCP
       port: 9090
       targetPort: 9090
-      nodePort: 32001 
+      nodePort: 32001
   type: NodePort
