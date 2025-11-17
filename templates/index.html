@@ -3,12 +3,10 @@
 <head>
     <title>Flipkart Chatbot</title>
 
-    <!-- Bootstrap + Icons + jQuery -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 </head>
 
@@ -19,7 +17,6 @@
             <div class="col-md-8 col-xl-6 chat">
                 <div class="card">
 
-                    <!-- Header -->
                     <div class="card-header msg_head">
                         <div class="d-flex bd-highlight">
                             <div class="img_cont">
@@ -34,18 +31,12 @@
                         </div>
                     </div>
 
-                    <!-- Chat Body -->
                     <div id="messageFormeight" class="card-body msg_card_body"></div>
 
-                    <!-- Footer Input Box -->
                     <div class="card-footer">
                         <form id="messageArea" class="input-group">
-                            <input type="text" id="text" name="msg"
-                                   placeholder="Type your message..."
-                                   autocomplete="off"
-                                   class="form-control type_msg"
-                                   required />
-
+                            <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off"
+                                   class="form-control type_msg" required />
                             <div class="input-group-append">
                                 <button type="submit" id="send" class="input-group-text send_btn">
                                     <i class="fas fa-location-arrow"></i>
@@ -60,69 +51,61 @@
         </div>
     </div>
 
-    <!-- Chat Script -->
-    <script>
-        $(document).ready(function () {
+<script>
+$(document).ready(function () {
 
-            $("#messageArea").on("submit", function (event) {
-                event.preventDefault();
+    $("#messageArea").on("submit", function (event) {
+        event.preventDefault();
 
-                const date = new Date();
-                const timestamp = date.getHours() + ":" + date.getMinutes();
-                let rawText = $("#text").val().trim();
-                if (!rawText) return;
+        const date = new Date();
+        const timestamp = date.getHours() + ":" + date.getMinutes();
 
-                // ---- USER MESSAGE UI ----
-                let userHtml = `
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg_cotainer_send">
-                            ${rawText}
-                            <span class="msg_time_send">${timestamp}</span>
-                        </div>
-                        <div class="img_cont_msg">
-                            <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png"
-                                 class="rounded-circle user_img_msg">
-                        </div>
-                    </div>`;
+        let rawText = $("#text").val().trim();
+        if (!rawText) return;
 
-                $("#messageFormeight").append(userHtml);
-                $("#text").val("");
+        let userHtml = `
+            <div class="d-flex justify-content-end mb-4">
+                <div class="msg_cotainer_send">
+                    ${rawText}
+                    <span class="msg_time_send">${timestamp}</span>
+                </div>
+                <div class="img_cont_msg">
+                    <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg">
+                </div>
+            </div>
+        `;
 
-                // ---- AJAX CALL TO BACKEND ----
-                $.ajax({
-                    url: "/get",
-                    type: "POST",
-                    data: { msg: rawText }
-                })
-                .done(function (data) {
+        $("#messageFormeight").append(userHtml);
+        $("#text").val("");
 
-                    // FIX: Ensure backend response is a SAFE STRING
-                    if (typeof data !== "string") {
-                        data = JSON.stringify(data);
-                    }
+        $.ajax({
+            url: "/get",
+            type: "POST",
+            data: { msg: rawText }
+        })
+        .done(function (response) {
+            let data = response.text || "No response";
 
-                    // Replace newlines with <br>
-                    data = data.replace(/\n/g, "<br>");
+            let botHtml = `
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.vecteezy.com/system/resources/previews/016/017/018/non_2x/ecommerce-icon-free-png.png"
+                             class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        ${data}
+                        <span class="msg_time">${timestamp}</span>
+                    </div>
+                </div>
+            `;
 
-                    // ---- BOT MESSAGE UI ----
-                    let botHtml = `
-                        <div class="d-flex justify-content-start mb-4">
-                            <div class="img_cont_msg">
-                                <img src="https://static.vecteezy.com/system/resources/previews/016/017/018/non_2x/ecommerce-icon-free-png.png"
-                                     class="rounded-circle user_img_msg">
-                            </div>
-                            <div class="msg_cotainer">
-                                ${data}
-                                <span class="msg_time">${timestamp}</span>
-                            </div>
-                        </div>`;
-
-                    $("#messageFormeight").append(botHtml);
-                });
-            });
-
+            $("#messageFormeight").append(botHtml);
         });
-    </script>
+
+    });
+
+});
+</script>
 
 </body>
 </html>

@@ -10,6 +10,7 @@ class Config:
     ASTRA_DB_KEYSPACE = os.getenv("ASTRA_DB_KEYSPACE")
 
     # API Keys
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")         # <-- ADDED
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     HF_TOKEN = os.getenv("HF_TOKEN")
     HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
@@ -19,3 +20,4 @@ class Config:
     # Models
     EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
     RAG_MODEL = "llama-3.1-8b-instant"
+ # Using OpenAI Mini for better RAG performance

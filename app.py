@@ -1,60 +1,48 @@
-from flask import Flask, render_template, request, Response
-from prometheus_client import Counter, generate_latest
-from dotenv import load_dotenv
-import re
-
-from flipkart.data_ingestion import DataIngestor
-from flipkart.rag_chain import RAGChainBuilder, extract_answer
-
-load_dotenv()
-
-REQUEST_COUNT = Counter("http_requests_total", "Total HTTP Requests")
+from flask import Flask, request, jsonify, render_template
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_astradb import AstraDBVectorStore
+from flipkart.rag_chain import RAGChain
+from flipkart.config import Config
 
 
 def create_app():
-
     app = Flask(__name__)
 
-    print("📌 Loading vector store...")
-    vector_store = DataIngestor().ingest(load_existing=True)
+    print("Loading embeddings…")
+    embeddings = HuggingFaceEmbeddings(model_name=Config.EMBEDDING_MODEL)
 
-    rag_chain = RAGChainBuilder(vector_store).build_chain()
+    print("Connecting to AstraDB Vector Store…")
+    vector_store = AstraDBVectorStore(
+        collection_name="flipkart_products",
+        embedding=embeddings,
+        api_endpoint=Config.ASTRA_DB_API_ENDPOINT,
+        token=Config.ASTRA_DB_APPLICATION_TOKEN,
+        namespace=Config.ASTRA_DB_KEYSPACE,
+    )
+
+    rag_chain = RAGChain(vector_store)
 
     @app.route("/")
-    def index():
-        REQUEST_COUNT.inc()
+    def home():
         return render_template("index.html")
 
+    # FIXED ENDPOINT (frontend AJAX calls POST /get)
     @app.route("/get", methods=["POST"])
-    def get_response():
+    def get_bot_response():
+        user_query = request.form.get("msg", "")
 
-        user_input = request.form.get("msg", "")
+        if not user_query:
+            return jsonify({"text": "Please type something!"})
 
         try:
-            result = rag_chain.invoke(
-                {"input": user_input},
-                config={"configurable": {"session_id": "user-session"}}
-            )
-
-            answer = extract_answer(result)
-
-            # Convert newlines safely for HTML
-            answer = re.sub(r"\n+", "<br>", answer)
-
-            return answer
-
+            answer = rag_chain.generate_answer(user_query)
+            return jsonify({"text": str(answer)})
         except Exception as e:
-            print("❌ Error:", e)
-            return f"Error: {str(e)}"
-
-    @app.route("/metrics")
-    def metrics():
-        return Response(generate_latest(), mimetype="text/plain")
+            return jsonify({"text": f"Error: {str(e)}"})
 
     return app
 
 
 if __name__ == "__main__":
     app = create_app()
-    print("🚀 Running on http://127.0.0.1:5000/")
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
