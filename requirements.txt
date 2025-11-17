@@ -15,3 +15,5 @@ pypdf
 python-dotenv
 pandas
 prometheus_client
+
+langchain-astradb
