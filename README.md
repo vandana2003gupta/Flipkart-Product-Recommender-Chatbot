@@ -12,6 +12,8 @@ This project is an end-to-end LLM-based product recommender chatbot that fetches
 
 <img width="1183" height="751" alt="image" src="https://github.com/user-attachments/assets/b6474484-1a0d-4262-80ec-2f2ef76e70c3" />
 
+--
+
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/49970e32-4e93-4ff3-afe5-a9b78e83db43" />
 
 # Tested Samples 
