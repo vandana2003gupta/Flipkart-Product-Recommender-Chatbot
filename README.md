@@ -1,8 +1,19 @@
 
+🛒 Flipkart Product Recommender Chatbot
+AI-Powered RAG Chatbot using Flask, AstraDB, HuggingFace Embeddings, Prometheus, Docker & Kubernetes
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cc455054-e8d7-4207-bc69-63083454bdc7" />
+
+This project is an end-to-end LLM-based product recommender chatbot that fetches Flipkart product data, converts it into embeddings, stores them in Astra DB Vector Store, and answers user queries using a RAG (Retrieval Augmented Generation) pipeline powered by LLaMA.
+
+<img width="670" height="546" alt="image" src="https://github.com/user-attachments/assets/3cb6b9a1-5385-4179-ae76-470eed05af95" />
+
 <img width="998" height="717" alt="image" src="https://github.com/user-attachments/assets/85f8ed22-a631-49b5-90cd-b9660a51dcda" />
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/49970e32-4e93-4ff3-afe5-a9b78e83db43" />
+<img width="822" height="551" alt="image" src="https://github.com/user-attachments/assets/2a49cae1-f0f5-410b-9201-1735fc12951c" />
 
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/49970e32-4e93-4ff3-afe5-a9b78e83db43" />
 
 <img width="1046" height="741" alt="image" src="https://github.com/user-attachments/assets/cb521d43-bb44-4b55-9d55-6a0ec66a103d" />
 
