@@ -6,6 +6,8 @@ AI-Powered RAG Chatbot using Flask, AstraDB, HuggingFace Embeddings, Prometheus,
 
 This project is an end-to-end LLM-based product recommender chatbot that fetches Flipkart product data, converts it into embeddings, stores them in Astra DB Vector Store, and answers user queries using a RAG (Retrieval Augmented Generation) pipeline powered by LLaMA.
 
+<img width="1016" height="690" alt="image" src="https://github.com/user-attachments/assets/5e83179a-9a77-48f3-aea3-81b8836a777d" />
+
 <img width="1183" height="751" alt="image" src="https://github.com/user-attachments/assets/b6474484-1a0d-4262-80ec-2f2ef76e70c3" />
 
 
