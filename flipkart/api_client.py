@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
-
-# The correct host based on your screenshot
 RAPIDAPI_HOST = os.getenv("RAPIDAPI_HOST", "flipkart-apis.p.rapidapi.com")
 
 HEADERS = {
