@@ -12,8 +12,6 @@ class RAGChain:
             model=Config.RAG_MODEL,
             temperature=0.2,
         )
-
-        # Strong bullet-point enforced prompt
         self.prompt_template = """
 You are a Flipkart Product Recommendation Assistant.
 
