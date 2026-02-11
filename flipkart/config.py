@@ -10,7 +10,7 @@ class Config:
     ASTRA_DB_KEYSPACE = os.getenv("ASTRA_DB_KEYSPACE")
 
     # API Keys
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")         # <-- ADDED
+    # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")         
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     HF_TOKEN = os.getenv("HF_TOKEN")
     HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
